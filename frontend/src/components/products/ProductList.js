@@ -29,8 +29,7 @@ class ProductList extends React.Component{
                                 <img src={product.pic} alt="an image" className="imgs"/>
                             </div>
                             <div>
-                            <h1>{product.title}</h1>
-                            <Link to={`/products/${product.slug}/`}>Read more</Link>
+                            <h1><Link to={`/products/${product.slug}/`}>{product.title}</Link></h1>
                             {product.discount_price && (<label className={product.label}>Limited</label>)}
                             <p>{product.price} | {product.category}</p>
                             <p>{product.description}</p>

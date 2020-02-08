@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import HOC from '../hoc/HOC'
+
+import { Link} from 'react-router-dom'
 import {connect } from 'react-redux'
 import { getItems,addCart} from '../../actions/products'
 import {cartSuccess} from '../../actions/cart'
@@ -28,10 +30,11 @@ class ProductList extends React.Component{
                             </div>
                             <div>
                             <h1>{product.title}</h1>
+                            <Link to={`/products/${product.slug}/`}>Read more</Link>
                             {product.discount_price && (<label className={product.label}>Limited</label>)}
                             <p>{product.price} | {product.category}</p>
                             <p>{product.description}</p>
-                            <button className="secondary-btn" onClick={() => this.handleAddToCart(product.slug)}>Add  to cart</button>
+                            <button className="primary-btn" onClick={() => this.handleAddToCart(product.slug)}>Add  to cart</button>
                             </div>
                         </div>
                     ))

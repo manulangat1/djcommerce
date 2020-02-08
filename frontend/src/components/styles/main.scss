@@ -1,78 +1,167 @@
 *{
-    // background:#333;
-    
-    // overflow:hidden;
     padding:0;
     margin: 0;
     // font-family:  'Roboto Condensed', sans-serif;
-    font-family: "HelveticaNeue-Medium","Helvetica Neue Medium";
+    // font-family: "HelveticaNeue-Medium","Helvetica Neue Medium";
+    font-family: 'Signika', sans-serif;
     font-weight: 400;
+    font-size: 15px;
     line-height: 1.5;
+    box-sizing: border-box;
+    // background-color: #f4f4f4;
     img{
         max-width:100%;
     }
 }
 .main{
-    background-color: #f3f3f3;
-   min-height: 75vh;
+    background-color: #f4f4f4;
+   min-height: 80vh;
 }
 .container{
     max-width: 1024px;
     margin: auto;
 }
+// header
+header{
+    background-color: #35424a;
+    color:#ffffff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+    li{
+        float: left;
+        display: inline;
+        padding: 0 20px 0 20px;
+    }
+    nav{
+        float: right;
+        margin-top: -15px;
+        /* The dropdown container */
+.dropdown {
+    // float: left;
+    overflow: hidden;
+    margin-top: -16px;
+  }
+  
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+//   .dropbtn{
+//       background-color: #181818;
+//   }
+  /* Add a red background color to navbar links on hover */
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+  }
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #181818;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+    }
+
+    #branding{
+        float:left;
+
+        h1{
+            margin:0;
+        .highlight{
+            color: #e8491d;
+            font-weight: bold;
+        }
+        }
+    }
+}
 // btn classes and links
 a{
+    text-transform: uppercase;
+    font-style: 1rem;
+    // color:#ffffff;
     text-decoration: none;
     &:hover{
         color: green;
     }
 }
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 .primary-btn{
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     border: none;
-    padding: 1.1rem 1.6rem;
+    height: 2.7rem;
+    display: block;
+    padding: 0.7rem 1rem;
     color: #fff;
-    background-color: #6b6;
+    background-color: #f96816;
     border-radius: 4px;
-    font-size: 0.9rem;
+    font-weight: 500;
     margin-bottom: 0.7rem;
+    cursor: pointer;
+    transition: all 0.5s;
     &:hover{
-        color:#494;
-        background-color: #fff;
+        // color:#494;
+        background-color: #ff7b39;
     }
 }
 .secondary-btn{
-    margin-top: 1rem;
-    border: none;
-    padding: 0.7rem 1.1rem;
-    color: purple;
-    background-color: green;
+    margin-top: 0.5rem;
+    border: 1px solid #f4f4f4;
+    height: 2.7rem;
+    display: block;
+    padding: 0.7rem 1rem;
+    color: #fff;
+    background-color: none;
     border-radius: 4px;
-    font-size: 0.8rem;
+    font-weight: 500;
     margin-bottom: 0.7rem;
+    cursor: pointer;
+    transition: all 0.5s;
     &:hover{
-        color:red;
-        background-color: #fff;
+        // color:#494;
+        border-color: #ff7b39;
+        color: #ff7b39;
     }
 }
 // utility classes
 .utility{
     width:80%;
-    margin: auto;
-    background-color: #f1f1ff;
-    padding: 1rem;
+    padding-bottom: 1rem;
     .label{
-        font-size: 2.5rem;
-        display: block;
+        font-size: 0.9rem;
+        // display: block;
+        line-height: 2rem;
+        font-weight: 500;
     }
     .form-control{
-        margin-top: 1rem;
-        padding:0.8rem;
-        background-color: #333;
-        color: #fff;
-        border: solid  #89591d 0.2rem;
+        margin-bottom: 1.3rem;
+        width:100%;
+        padding:0.5rem 1rem;
+        background: #181818;
+        color: #ccc;
+        border: solid  #555 1px;
         border-radius: 4px;
-        font-size:1.5rem;
+        // font-size:1.5rem;
+        line-height: 1.3rem;
     }
     .grid{
         display: grid;
@@ -87,15 +176,85 @@ a{
 }
 
 // styling for the login component and/or register component 
-.login{
+#wrapper{
+    background-color: #181818;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    // align-items: center;
-    // text-align: center;
-    padding-top: 3rem;
-    // max-width:80%;
-    // margin: auto;
+    flex-direction: row;
+    padding: 1.5rem;
+    #left{
+        display: flex;
+        flex-direction: column;
+        flex: 4;
+        align-items: center;
+        justify-content: center;
+        height:80vh;
+
+        #signin{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width:80%;
+            .logo{
+                margin-bottom: 1.5vh;
+                h1{
+                    font-size: 3rem;
+                    text-decoration: wavy;
+                }
+            }
+            .primary-btn{
+                width:100%;
+            }
+            .secondary-btn,.or,.links{
+                width:60%;
+                margin: auto;
+            }
+            .links a{
+                color:#fff;
+                margin-bottom: 1rem;
+                display: block;
+                text-align-last: center;
+                font-size: 0.9rem;
+            }
+            .or{
+                display:flex;
+                flex-direction: row;
+                margin-bottom: 1.2rem;
+                align-items: center;
+                text-align: center;
+                .bar{
+                    flex:auto;
+                    border: none;
+                    height: 1px;
+                    background: #aaa;
+                }
+                span{
+                    color:#ccc;
+                    padding: 0 0.8rem;
+                }
+            }
+
+        }
+    }
+    #right{
+        flex: 6;
+        #showcase{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:80vh;
+            text-align: center;
+            .showcase-text{
+                font-size: 3rem;
+                width: 100%;
+                margin-bottom: 1.5rem;
+            }
+            .secondary-btn{
+                width: 60%;
+                margin: auto;
+            }
+        }
+    }
 }
 // products styling
 #products{
@@ -119,11 +278,38 @@ a{
         }
     }
 }
+.summary{
+    padding:2rem;
+    #customers{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+    td,  th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+    tr:nth-child(even){background-color: #f2f2f2;}
+    tr:hover {background-color: #ddd;}
+       th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+      }
+    }
+    .summary-details{
+        margin-top: 3vh;
+    }
+}
 // tyling for the footer component 
 .footer{
     padding:2rem;
-    background-color: #333;
+    // margin-top:20px;
+    background-color: #e8491d;
     color: #fff;
+    text-align: center;
     p{
         text-align: center;
         font-size: 400;

@@ -16,6 +16,7 @@ from requests.auth import HTTPBasicAuth
 import json
 from . mpesa_credentials import MpesaAccessToken, LipanaMpesaPpassword
 
+
 ######MPESA INTERHA
 def getAccessToken(request):
     consumer_key = "xRnXI6CzMc4fmJMYnsybUVYtgQ8ndtUo"
@@ -92,6 +93,11 @@ class ItemListView(generics.ListAPIView):
     serializer_class = ItemSerializer
     queryset = Item.objects.all()
 
+class ItemDetailView(generics.RetrieveAPIView):
+    serializer_class = ItemSerializer
+    queryset = Item.objects.all()
+    # look
+    lookup_field = 'slug'
 class AddToCartView(APIView):
     def post(self,request,*args,**kwargs):
         slug = request.data.get('slug',None)

@@ -26,32 +26,50 @@ class Login extends React.Component{
         }
         const {username,password} = this.state
         return(
-            <main className="login">
-                <div>
-                    
-                    
-                    <form onSubmit={this.onSubmit} className="utility">
-                    {/* <fieldset>
-                        <legend>Uswr login</legend> */}
-                        <div>
-                            <label className="label">Username</label>
-                            <input required className="form-control" type="text" value={username} placeholder="enter" name="username" onChange={this.onChange} />
-                        </div>
-                        <div>
-                            <label className="label">password</label>
-                            <input required className="form-control" type="password" value={password} placeholder="enter" name="password" onChange={this.onChange}/>
-                        </div>
-                        <button className="primary-btn">Login</button>
-                        <p>Dont have an account? <Link to="/register">Register here</Link></p>
-                        {/* </fieldset> */}
+            <main id="wrapper">
+                <div id="left">
+                     <div id="signin">
+                         <div className="logo">
+                             <h1>Log in</h1>
+                         </div>
+                         <form onSubmit={this.onSubmit} className="utility">
+                            <div>
+                                <label className="label">Username</label>
+                                <input required className="form-control" type="text" value={username} placeholder="enter" name="username" onChange={this.onChange} />
+                            </div>
+                            <div>
+                                <label className="label">password</label>
+                                <input required className="form-control" type="password" value={password} placeholder="enter" name="password" onChange={this.onChange}/>
+                            </div>
+                            <button className="primary-btn" type="submit">Login</button>
+                            <div className="links">
+                                <Link to="/register">Register here</Link>
+                            </div>
+                            <div className="or">
+                                <hr className="bar"></hr>
+                                <span>OR</span>
+                                <hr className="bar"></hr>
+                            </div>
+                            <Link to="/register" className="secondary-btn">Create an Account</Link>
                     </form>
-                    
+                     </div>
+                </div>
+                <div id="right">
+                    <div id="showcase">
+                        <div className="showcase-content">
+                            <h1 className="showcase-text">
+                                Shop at the convineirt of you phone!!
+                                <a href="" className="secondary-btn" >Learn More</a>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div>        
                 </div>
             </main>
         )
     }
 }
-// Login = HOC(Login)
 const mapStateToProps = state => ({
     isAuthenticated:state.auth.isAuthenticated
 })

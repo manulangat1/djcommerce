@@ -4,6 +4,7 @@ import {HashRouter as Router,Route,Switch,Redirect} from 'react-router-dom'
 import Footer from './layout/Footer'
 import Header from './layout/Header'
 import ProductList from './products/ProductList'
+import ProductDetal from './products/ProductDetal'
 import  OrderSummary  from "./products/OrderSummary";
 import {Provider} from 'react-redux'
 import store from '../store'
@@ -24,12 +25,13 @@ class App extends React.Component{
                 <Header />
                 <Switch>
                     <div className="main">
-                        <div className="container">
+                        {/* <div className="container"> */}
                         <PrivateRoute exact path="/" component={ProductList} />
                         <PrivateRoute exact path="/order-summary" component={OrderSummary} />
+                        <PrivateRoute exact path="/products/:slug" component={ProductDetal} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/register" component={Register} />
-                        </div>
+                        {/* </div> */}
                     </div>
                 </Switch>
                 <Footer />

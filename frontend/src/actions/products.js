@@ -1,4 +1,4 @@
-import { GET_ITEMS,ADD_TO_CART } from './types'
+import { GET_ITEMS,ADD_TO_CART,GET_DETAILS } from './types'
 import axios from 'axios'
 import { tokenConfig } from "./auth";
 export const getItems = () => (dispatch,getState) => {
@@ -20,6 +20,16 @@ export const addCart = slug => (dispatch,getState) => {
              dispatch({
                  type:ADD_TO_CART,
                  payload: res.data
+             })
+         })
+         .catch(err => console.log(err))
+}
+export const prodDetail = slug => (dispatch,getState) => {
+    axios.get(`/api/product/${slug}/`,tokenConfig(getState))
+         .then(res => {
+             dispatch({
+                 type:GET_DETAILS,
+                 payload:res.data
              })
          })
          .catch(err => console.log(err))

@@ -19,6 +19,11 @@ class Header extends React.Component{
                     <Link to="/">Home</Link>
                     </li>
                     <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                        <i class="fas fa-shopping-cart fa-2x"></i>
+                        </button>
+                        <div class="dropdown-content">
                         <p>{`${ this.props.cart &&  this.props.cart.orderItems.length} items`}</p>
                         { this.props.cart && this.props.cart.orderItems.map(order_item => (
                             <div key={order_item.id}>
@@ -28,11 +33,13 @@ class Header extends React.Component{
                         {this.props.cart &&  this.props.cart.orderItems.length < 1 ? (<p>No items</p>) : null}
                         <button onClick={() => this.props.history.push('/order-summary')}>Checkout</button>
 
+                        </div>
+                    </div>
                     </li>
                     <li>
                     <Link to="/register">register</Link>
                     </li>
-                    <button onClick={this.props.logout}>Logout</button>
+                    <button onClick={this.props.logout} className="primary-btn">Logout</button>
                 </ul>
         )
         const guestLinks = (
@@ -46,11 +53,16 @@ class Header extends React.Component{
                 </ul>
         )
         return (
-            <div>
-            <nav>
-                {isAuthenticated ? authLinks:guestLinks}
-            </nav>
-        </div>
+            <header>
+                <div className="container">
+                    <div id="branding">
+                        <h1> <span className="highlight"> Letshego </span> Furniture</h1>
+                    </div>
+                    <nav>
+                        {isAuthenticated ? authLinks:guestLinks}
+                    </nav>
+                </div>
+            </header>
         )
     }
 }

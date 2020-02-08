@@ -1,8 +1,9 @@
-import { GET_ITEMS, ADD_TO_CART } from "../actions/types";
+import { GET_ITEMS, ADD_TO_CART, GET_DETAILS } from "../actions/types";
 
 const initialState = {
     products:[],
-    cart:[]
+    cart:[],
+    product:[]
 }
 export default function(state=initialState,action){
     switch(action.type){
@@ -16,6 +17,11 @@ export default function(state=initialState,action){
                 ...state,
                 // products:[]
                 cart:action.payload
+            }
+        case GET_DETAILS:
+            return{
+                ...state,
+                product:action.payload
             }
         default:
             return state

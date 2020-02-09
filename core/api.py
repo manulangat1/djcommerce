@@ -4,7 +4,7 @@ from knox.models import AuthToken
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.status import HTTP_200_OK,HTTP_400_BAD_REQUEST
-from .serializers import ProfileSerializer,UserSerializer,RegisterSerializer,LoginSerializer,ItemSerializer,OrderSerializer
+from .serializers import ProfileSerializer,UserSerializer,RegisterSerializer,LoginSerializer,ItemSerializer,OrderSerializer,OrderItemsSerializer
 from .models import Item,Order,OrderItem,Profile
 from django.shortcuts import render,get_object_or_404,redirect
 from django.utils import timezone
@@ -15,6 +15,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 import json
 from . mpesa_credentials import MpesaAccessToken, LipanaMpesaPpassword
+from rest_framework.views import APIView
 
 
 ######MPESA INTERHA
@@ -27,6 +28,12 @@ def getAccessToken(request):
     validated_mpesa_access_token = mpesa_access_token['access_token']
     return HttpResponse(validated_mpesa_access_token)
 ###requests
+class MpesaPay(generics.GenericAPIView):
+    serializer_class = OrderSerializer
+    def post(self,request):
+        user = self.request.user
+        print(user)
+        return HttpResponse({"hey"})
 def lipa_na_mpesa_online(request):
     access_token = MpesaAccessToken.validated_mpesa_access_token
     api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
@@ -136,18 +143,19 @@ class OrderView(generics.RetrieveAPIView):
             return order
         except ObjectDoesNotExist:
             return Respose({"message":"incad"},status=HTTP_400_BAD_REQUEST)
-class OrderDetailView(generics.RetrieveAPIView):
-    serializer_class = OrderSerializer
-    permission_classes = [
-        permissions.IsAuthenticated
-    ]
-    def get_objects(self):
-        # return
-        try:
-            order = Order.objects.get(user=self.request.user,ordered=False)
-            context = {
-                'object':order
-            }
-            return order
-        except ObjectDoesNotExist:
-            return Response({"message":"You do not have any order"},status=HTTP_400_BAD_REQUEST)
+class OrderDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = OrderItemsSerializer
+    # permission_classes = [
+    #     permissions.IsAuthenticated
+    # ]
+    queryset = OrderItem.objects.all()
+    # def get_objects(self):
+    #     # return
+    #     try:
+    #         order = Order.objects.get(user=self.request.user,ordered=False)
+    #         context = {
+    #             'object':order
+    #         }
+    #         return order
+    #     except ObjectDoesNotExist:
+    #         return Response({"message":"You do not have any order"},status=HTTP_400_BAD_REQUEST)

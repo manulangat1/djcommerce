@@ -1,6 +1,7 @@
-import { CART_START,CART_SUCCESS,CART_FAIL,CART_LOGOUT} from '../actions/types'
+import { CART_START,CART_SUCCESS,CART_FAIL,CART_LOGOUT,CART_UPDATE,LIPA_MPESA,CART_NO} from '../actions/types'
 const initialState = {
     cart:null,
+    carts:null
 }
 
 export default function(state=initialState,action){
@@ -9,6 +10,15 @@ export default function(state=initialState,action){
             return{
                 ...state,
                 cart:action.payload
+            }
+        case CART_UPDATE:
+            return{
+                ...state
+            }
+        case LIPA_MPESA:
+        case CART_NO:
+            return{
+                ...state
             }
         default:
             return state

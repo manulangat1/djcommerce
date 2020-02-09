@@ -4,7 +4,7 @@ from knox.models import AuthToken
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.status import HTTP_200_OK,HTTP_400_BAD_REQUEST
-from .serializers import ProfileSerializer,UserSerializer,RegisterSerializer,LoginSerializer,ItemSerializer,OrderSerializer,OrderItemsSerializer
+from .serializers import ItemDetailSerializer,ProfileSerializer,UserSerializer,RegisterSerializer,LoginSerializer,ItemSerializer,OrderSerializer,OrderItemsSerializer
 from .models import Item,Order,OrderItem,Profile
 from django.shortcuts import render,get_object_or_404,redirect
 from django.utils import timezone
@@ -101,7 +101,7 @@ class ItemListView(generics.ListAPIView):
     queryset = Item.objects.all()
 
 class ItemDetailView(generics.RetrieveAPIView):
-    serializer_class = ItemSerializer
+    serializer_class = ItemDetailSerializer
     queryset = Item.objects.all()
     # look
     lookup_field = 'slug'

@@ -37,6 +37,28 @@ class Item(models.Model):
         return reverse("core:remove_from_cart",kwargs={
             'slug': self.slug
         })
+class Variation(models.Model):
+    item = models.ForeignKey(Item,on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    class Meta:
+        unique_together = (
+            ('item','name'),
+        )
+
+    def __str__(self):
+        return self.name
+    
+class ItemVariation(models.Model):
+    variation = models.ForeignKey(Variation,on_delete=models.CASCADE)
+    value = models.CharField(max_length=50) # S,M,L
+    attachment = models.ImageField(upload_to='variations/')
+
+    class Meta:
+        unique_together = (
+            ('variation','value'),
+        )
+    def __str__(self):
+        return self.value
 class OrderItem(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,blank=True,null=True)
     ordered = models.BooleanField(default=False,blank=True,null=True)

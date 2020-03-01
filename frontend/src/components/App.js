@@ -25,13 +25,11 @@ class App extends React.Component{
                 <Header />
                 <Switch>
                     <div className="main">
-                        {/* <div className="container"> */}
                         <PrivateRoute exact path="/" component={ProductList} />
                         <PrivateRoute exact path="/order-summary" component={OrderSummary} />
                         <PrivateRoute exact path="/products/:slug" component={ProductDetal} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/register" component={Register} />
-                        {/* </div> */}
                     </div>
                 </Switch>
                 <Footer />

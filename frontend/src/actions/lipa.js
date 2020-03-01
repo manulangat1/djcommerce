@@ -5,7 +5,7 @@ import axios from 'axios'
 export const lipaMpesa = () => (dispatch,getState) => {
     console.log(tokenConfig(getState))
     axios
-         .post('/api/mpesa/',tokenConfig(getState))
+         .post('/api/mpesa/',null,tokenConfig(getState))
          .then(res => {
              dispatch({
                  type:LIPA_MPESA,

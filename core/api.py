@@ -33,6 +33,24 @@ class MpesaPay(generics.GenericAPIView):
     def post(self,request):
         user = self.request.user
         print(user)
+        access_token = MpesaAccessToken.validated_mpesa_access_token
+        api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
+        headers = {"Authorization":"Bearer %s" %access_token}
+        request = {
+            "BusinessShortCode":LipanaMpesaPpassword.Business_short_code,
+            "Password": LipanaMpesaPpassword.decode_password,
+            "Timestamp": LipanaMpesaPpassword.lipa_time,
+            "TransactionType": "CustomerPayBillOnline",
+            "Amount": 1,
+            "PartyA": 254740926167,  # replace with your phone number to get stk push
+            "PartyB": LipanaMpesaPpassword.Business_short_code,
+            "PhoneNumber": 254740926167,  # replace with your phone number to get stk push
+            "CallBackURL": "https://sandbox.safaricom.co.ke/mpesa/",
+            "AccountReference": "Manulangat",
+            "TransactionDesc": "Testing stk push"
+        }
+        response = requests.post(api_url,json=request,headers=headers)
+        print(request)
         return HttpResponse({"hey"})
 def lipa_na_mpesa_online(request):
     access_token = MpesaAccessToken.validated_mpesa_access_token
@@ -44,9 +62,9 @@ def lipa_na_mpesa_online(request):
         "Timestamp": LipanaMpesaPpassword.lipa_time,
         "TransactionType": "CustomerPayBillOnline",
         "Amount": 1,
-        "PartyA": 254710751867,  # replace with your phone number to get stk push
+        "PartyA": 254740926167,  # replace with your phone number to get stk push
         "PartyB": LipanaMpesaPpassword.Business_short_code,
-        "PhoneNumber": 254710751867,  # replace with your phone number to get stk push
+        "PhoneNumber": 254740926167,  # replace with your phone number to get stk push
         "CallBackURL": "https://sandbox.safaricom.co.ke/mpesa/",
         "AccountReference": "Manulangat",
         "TransactionDesc": "Testing stk push"

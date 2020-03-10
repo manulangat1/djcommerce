@@ -30,9 +30,14 @@ def getAccessToken(request):
 ###requests
 class MpesaPay(generics.GenericAPIView):
     serializer_class = OrderSerializer
-    def post(self,request):
+    def post(self,request,*args,**kwargs):
         user = self.request.user
         print(user)
+        print(request.data)
+        # print(request.data['phone_no'])
+        # print(*args,**kwargs)
+        phone_no = request.data['phone_no']
+        print(int("254{0}".format(phone_no)))
         access_token = MpesaAccessToken.validated_mpesa_access_token
         api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
         headers = {"Authorization":"Bearer %s" %access_token}
@@ -42,12 +47,12 @@ class MpesaPay(generics.GenericAPIView):
             "Timestamp": LipanaMpesaPpassword.lipa_time,
             "TransactionType": "CustomerPayBillOnline",
             "Amount": 1,
-            "PartyA": 254740926167,  # replace with your phone number to get stk push
+            "PartyA": f'{phone_no}',  # replace with your phone number to get stk push
             "PartyB": LipanaMpesaPpassword.Business_short_code,
-            "PhoneNumber": 254740926167,  # replace with your phone number to get stk push
+            "PhoneNumber": f'{phone_no}',  # replace with your phone number to get stk push
             "CallBackURL": "https://sandbox.safaricom.co.ke/mpesa/",
-            "AccountReference": "Manulangat",
-            "TransactionDesc": "Testing stk push"
+            "AccountReference": f'{self.request.user.username}',
+            "TransactionDesc": "Payment of goods"
         }
         response = requests.post(api_url,json=request,headers=headers)
         print(request)
@@ -76,7 +81,7 @@ def lipa_na_mpesa_online(request):
 class ProfileView(generics.RetrieveAPIView):
     serializer_class = ProfileSerializer
     # queryset = Profile.objects.all()
-    def get_queryset(request, *args, **kwargs):
+    def get_queryset(self,request, *args, **kwargs):
         # return 
         print(request,self,*args,**kwargs)
         # user = get_object_or_404(User, pk=kwargs['id'])

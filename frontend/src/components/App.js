@@ -12,6 +12,7 @@ import Register from './auth/Register'
 import Login from './auth/Login'
 import  PrivateRoute  from "./common/PrivateRoute";
 import { loadUser } from "../actions/auth";
+import Checkout from './products/Checkout'
 import './styles/main.scss'
 class App extends React.Component{
     componentDidMount(){
@@ -28,6 +29,7 @@ class App extends React.Component{
                         <PrivateRoute exact path="/" component={ProductList} />
                         <PrivateRoute exact path="/order-summary" component={OrderSummary} />
                         <PrivateRoute exact path="/products/:slug" component={ProductDetal} />
+                        <PrivateRoute exact path="/checkout" component={Checkout} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/register" component={Register} />
                     </div>

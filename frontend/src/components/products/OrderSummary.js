@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import HOC from '../hoc/HOC'
 import '../styles/main.scss'
+import { Link } from 'react-router-dom'
 import {connect } from 'react-redux'
 import { getItems,addCart} from '../../actions/products'
 import {cartSuccess,cartUpdate} from '../../actions/cart'
@@ -64,11 +65,7 @@ class OrderSummary extends React.Component{
                 }
       </tbody>
     </table>
-            <div className="summary-details">
-                <h1>Total:{this.props.cart.total}</h1>
-                    <p>Kindly choose your payment option:</p>
-                    <button onClick={this.onClick}>Lipa na mpesa</button>
-                </div>
+                <Link to="/checkout">Proceed to checkout</Link>
             </div>
             </section>
         )

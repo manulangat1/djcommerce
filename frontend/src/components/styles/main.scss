@@ -58,6 +58,9 @@ header{
 //       background-color: #181818;
 //   }
   /* Add a red background color to navbar links on hover */
+  a{
+      color:#f1f1f1;
+  }
   .navbar a:hover, .dropdown:hover .dropbtn {
     background-color: red;
   }
@@ -269,7 +272,7 @@ ul{
             grid-gap: 0.1rem;
             &:hover{
                 padding:0.1rem;
-                border-bottom: solid red 0.5rem;
+                // border-bottom: solid red 0.5rem;
             }
             .imgs{
                 width:190px;
@@ -326,6 +329,30 @@ ul{
     }
     .summary-details{
         margin-top: 3vh;
+    }
+}
+#checks{
+    padding:2.5rem;
+    form{
+        width: 60%;
+        margin: auto;
+        label{
+            display: block;
+            font-size: 2.5rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        .form-control{
+            // background-color: #f9f9f9;
+            color: #f9f9f9;
+            // border-color: #f96816;
+            border: none;
+            background-color: #181818;
+            margin-bottom: 1rem;
+            padding: 0.6rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
     }
 }
 // tyling for the footer component 

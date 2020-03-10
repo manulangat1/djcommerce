@@ -37,7 +37,6 @@ class Header extends React.Component{
                     </div>
                     </li>
                     <li>
-                    <Link to="/register">register</Link>
                     </li>
                     <button onClick={this.props.logout} className="primary-btn">Logout</button>
                 </ul>

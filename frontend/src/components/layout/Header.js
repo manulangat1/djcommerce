@@ -31,7 +31,7 @@ class Header extends React.Component{
                             </div>
                         ))}
                         {this.props.cart &&  this.props.cart.orderItems.length < 1 ? (<p>No items</p>) : null}
-                        <button onClick={() => this.props.history.push('/order-summary')}>Checkout</button>
+                        <button className="primary-btn" onClick={() => this.props.history.push('/order-summary')}>Checkout</button>
 
                         </div>
                     </div>
@@ -55,7 +55,7 @@ class Header extends React.Component{
             <header>
                 <div className="container">
                     <div id="branding">
-                        <h1> <span className="highlight"> Letshego </span> Furniture</h1>
+                        <h1> <i class="fas fa-couch fa-2.5x"><span className="highlight"> Letshego </span> Furniture</i></h1>
                     </div>
                     <nav>
                         {isAuthenticated ? authLinks:guestLinks}

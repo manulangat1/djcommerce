@@ -18,6 +18,8 @@ class Item(models.Model):
     price = models.FloatField()
     description = models.TextField(blank=True,null=True)
     pic = models.ImageField(upload_to='articles/',null=True,blank=True)
+    pic1 = models.ImageField(upload_to='articles/',null=True,blank=True)
+    pic2 = models.ImageField(upload_to='articles/',null=True,blank=True)
     discount_price = models.FloatField(blank=True,null=True)
     slug = models.SlugField(blank=True,null=True)
     category = models.CharField(choices=CATEGORY_CHOICES,max_length=10,blank=True,null=True)
@@ -37,6 +39,8 @@ class Item(models.Model):
         return reverse("core:remove_from_cart",kwargs={
             'slug': self.slug
         })
+
+    
 class Variation(models.Model):
     item = models.ForeignKey(Item,on_delete=models.CASCADE)
     name = models.CharField(max_length=50)

@@ -2,7 +2,17 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {prodDetail} from '../../actions/products'
 import '../styles/main.scss'
+import Carousel , { Dots }from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
 class ProductDetal extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+          value: 0,
+        };
+      }
+      
+      onChange = value => this.setState({ value });
     componentDidMount(){
         console.log(this.props.slug)
         if(this.props.slug){
@@ -13,10 +23,17 @@ class ProductDetal extends React.Component{
         const {product} = this.props
         return(
             <section className="detail">
-                <div className="container">
-                    <div className="prod">
-                 <img src={product.pic} alt="an image" className="imgs"/>
+                <div className="prod">
+                    <Carousel arrows value={this.state.value}
+        onChange={this.onChange} >
+                    <img src={product.pic} alt="an image" className="img-example"/>
+                    <img src={product.pic1} alt="an image" className="img-example"/>
+                    <img src={product.pic2} alt="an image" className="img-example"/>
+                    </Carousel>
+                    <Dots value={this.state.value} onChange={this.onChange} number={12} />
                  <div >
+                <div className="container">
+                    
                 <h1>{product.title}</h1>
                 {/* <h1>{pro.title}</h1> */}
                 <p>{product.price} | {product.category}</p>

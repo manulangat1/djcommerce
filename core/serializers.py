@@ -47,6 +47,8 @@ class ItemSerializer(serializers.ModelSerializer):
             'label',
             'slug',
             'description',
+            'pic1',
+            'pic2'
         )
     def get_category(self,obj):
         return obj.get_category_display()
@@ -133,6 +135,8 @@ class ItemDetailSerializer(serializers.ModelSerializer):
             'slug',
             'description',
             'variations',
+            'pic1',
+            'pic2'
         )
     def get_category(self,obj):
         return obj.get_category_display()

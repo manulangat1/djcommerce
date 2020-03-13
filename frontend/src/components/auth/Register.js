@@ -31,10 +31,10 @@ class Register extends React.Component{
         }
         const {username,password,email,password2} = this.state
         return(
-            <main>
-                <div>
+            <main className="register">
+                <div className="container">
                     <form onSubmit={this.onSubmit} className="utility">
-                        <div className="grid">
+                        <div>
                         <div>
                             <label className="label">Username</label>
                             <input required className="form-control" type="text" value={username} placeholder="enter name" name="username" onChange={this.onChange} />

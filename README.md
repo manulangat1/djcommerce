@@ -16,6 +16,13 @@
 *Navigate into the djcom folder.
 *Create a vitualenv by `python3 -m virtualenv venv` then activate it by `source venv/bin/activate`
 *Run `pip install -r requirements.txt` to innstall project dependancies
+*navigate into the <b>com</b> directory
+*run **python3 manage.py makemigrations core; python3 manage.py migrate**
+*run **python3 manage.py runserver**
+
+### Android part
+*Navigate into mobile dir ie **cd mobile/**
+* run expo start
 
 ## Known Bugs
 {

@@ -8,17 +8,17 @@
     NB: No Bootstrap and/or jquery used.
 }
 ## Set up installation and requrements
-*Navigate to your terminal and open up a new window.
-*Under you desired folder, create a directory named djcom. 
-*Naviagate into the directory by typing `cd djcom`
-*Type `pwd` to confirm that you are in the correct folder.
-*Kindly paste the following link on the terminal `https://github.com/manulangat1/djcommerce.git`
-*Navigate into the djcom folder.
-*Create a vitualenv by `python3 -m virtualenv venv` then activate it by `source venv/bin/activate`
-*Run `pip install -r requirements.txt` to innstall project dependancies
+* Navigate to your terminal and open up a new window.
+* Under you desired folder, create a directory named djcom. 
+* Naviagate into the directory by typing `cd djcom`
+* Type `pwd` to confirm that you are in the correct folder.
+* Kindly paste the following link on the terminal `https://github.com/manulangat1/djcommerce.git`
+* Navigate into the djcom folder.
+* Create a vitualenv by `python3 -m virtualenv venv` then activate it by `source venv/bin/activate`
+* Run `pip install -r requirements.txt` to innstall project dependancies
 *navigate into the <b>com</b> directory
-*run **python3 manage.py makemigrations core; python3 manage.py migrate**
-*run **python3 manage.py runserver**
+* run **python3 manage.py makemigrations core; python3 manage.py migrate**
+* run **python3 manage.py runserver**
 
 ### Android part
 *Navigate into mobile dir ie **cd mobile/**

@@ -37,7 +37,7 @@ class Register extends React.Component{
                         <div>
                         <div>
                             <label className="label">Username</label>
-                            <input required className="form-control" type="text" value={username} placeholder="enter name" name="username" onChange={this.onChange} />
+                            <input required className="form-control" minLength="8" type="text" value={username} placeholder="enter name" name="username" onChange={this.onChange} />
                         </div>
                         <div>
                             <label className="label">email</label>
@@ -45,11 +45,11 @@ class Register extends React.Component{
                         </div>
                         <div>
                             <label className="label">password</label>
-                            <input required className="form-control" type="password" value={password} placeholder="enter password" name="password" onChange={this.onChange} />
+                            <input required className="form-control" minLength="8" type="password" value={password} placeholder="enter password" name="password" onChange={this.onChange} />
                         </div>
                         <div>
-                            <label className="label">passwords</label>
-                            <input required className="form-control" type="password" value={password2} placeholder="enter password2" name="password2"onChange={this.onChange} />
+                            <label className="label">Confirm password</label>
+                            <input required className="form-control" minLength="8" type="password" value={password2} placeholder="enter password2" name="password2"onChange={this.onChange} />
                         </div>
                         </div>
                         <button className="primary-btn">Register</button>

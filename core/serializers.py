@@ -33,7 +33,7 @@ class LoginSerializer(serializers.Serializer):
             return user
         raise serializers.ValidationError("Incoreect Validations")
 class ItemSerializer(serializers.ModelSerializer):
-    category = serializers.SerializerMethodField()
+    # category = serializers.SerializerMethodField()
     label = serializers.SerializerMethodField()
     class Meta:
         model = Item

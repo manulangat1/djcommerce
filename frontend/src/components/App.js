@@ -13,7 +13,13 @@ import Login from './auth/Login'
 import  PrivateRoute  from "./common/PrivateRoute";
 import { loadUser } from "../actions/auth";
 import Checkout from './products/Checkout'
+import Help from './layout/Help'
+import About from './layout/About'
+import Contact from './layout/Contact'
 import './styles/main.scss'
+import HomeF from './products/HomeF'
+import Office from './products/Office'
+import Search from './products/Search'
 class App extends React.Component{
     componentDidMount(){
         store.dispatch(loadUser())
@@ -32,6 +38,12 @@ class App extends React.Component{
                         <PrivateRoute exact path="/checkout" component={Checkout} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/register" component={Register} />
+                        <Route exact path="/about" component={About} />
+                        <Route exact path="/help" component={Help} />
+                        <Route exact path="/contact" component={Contact} />
+                        <Route exact path="/home" component={HomeF} />
+                        <Route exact path="/office" component={Office} />
+                        <Route exact path="/search" component={Search} />
                     </div>
                 </Switch>
                 <Footer />

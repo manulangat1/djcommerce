@@ -4,9 +4,9 @@ from django.shortcuts import reverse
 from django.contrib.auth.models import User
 # Create your models here.
 CATEGORY_CHOICES = (
-    ('S','Shirt'),
-    ('Sw','Sport wear'),
-    ('Ow','Outwear'),
+    ('HOME','HOME'),
+    ('OFFICE','OFFICE'),
+    ('LUXURY','LUXURY'),
 )
 LABEL_CHOICES = (
     ('P','primary'),

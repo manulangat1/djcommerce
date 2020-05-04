@@ -19,6 +19,9 @@ class Checkout extends React.Component{
     onSubmit = e => {
         e.preventDefault()
         const { phone_no }= this.state
+        if(this.props.cart){
+            console.log(this.props.cart.total)
+        }
         this.props.lipaMpesa(phone_no)
         console.log("hello")
     }

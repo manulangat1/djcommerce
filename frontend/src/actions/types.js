@@ -6,7 +6,7 @@ export const USER_LOADED ="USER_LOADED"
 export const AUTH_ERROR ="AUTH_ERROR"
 export const GET_ITEMS = "GET_ITEMS"
 export const ADD_TO_CART = "ADD_TO_CART"
-
+export const LOAD_CATEGORY = "LOAD_CATEGORY"
 export const CART_START = "CART_START"
 export const CART_NO = "CART_NO"
 export const CART_UPDATE = "CART_UPDATE"

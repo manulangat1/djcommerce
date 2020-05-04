@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {prodDetail} from '../../actions/products'
+import {prodDetail,getItems,addCart} from '../../actions/products'
 import '../styles/main.scss'
 import Carousel , { Dots }from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
+import {cartSuccess} from '../../actions/cart'
 class ProductDetal extends React.Component{
     constructor(props) {
         super(props);
@@ -18,6 +19,11 @@ class ProductDetal extends React.Component{
         if(this.props.slug){
             this.props.prodDetail(this.props.slug)
         } 
+    }
+    handleAddToCart = (slug) => {
+        console.log(slug)
+        this.props.addCart(slug)
+        this.props.cartSuccess()
     }
     render(){
         const {product} = this.props
@@ -34,10 +40,10 @@ class ProductDetal extends React.Component{
                     </div>
                  <div >
                 <div className="container">
-                <h1>{product.title}</h1>
-                {/* <h1>{pro.title}</h1> */}
-                <p>{product.price} | {product.category}</p>
-                <p>{product.description}</p>
+                <h1>Title:{product.title}</h1>
+                <p>Specs:{product.price} | {product.category}</p>
+                <p>Product description{product.description}</p>
+                <button className="primary-btn" onClick={() => this.handleAddToCart(product.slug)}>Add  to cart</button>
                 </div>
                 </div>
                 </div>
@@ -49,4 +55,4 @@ const mapStateToProps = (state,ownProps) => ({
     slug:ownProps.match.params.slug,
     product:state.products.product
 })
-export default connect(mapStateToProps,{prodDetail})(ProductDetal)
+export default connect(mapStateToProps,{prodDetail,addCart,cartSuccess})(ProductDetal)

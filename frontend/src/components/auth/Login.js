@@ -35,15 +35,15 @@ class Login extends React.Component{
                          <form onSubmit={this.onSubmit} className="utility">
                             <div>
                                 <label className="label">Username</label>
-                                <input required className="form-control" type="text" value={username} placeholder="enter" name="username" onChange={this.onChange} />
+                                <input required placeholder="enter your username here" className="form-control" type="text" value={username}  name="username" onChange={this.onChange} />
                             </div>
                             <div>
                                 <label className="label">password</label>
-                                <input required className="form-control" type="password" value={password} placeholder="enter" name="password" onChange={this.onChange}/>
+                                <input required placeholder="enter your password here" className="form-control" type="password" value={password}  name="password" onChange={this.onChange}/>
                             </div>
                             <button className="primary-btn" type="submit">Login</button>
                             <div className="links">
-                                <Link to="/register">Register here</Link>
+                                {/* <Link to="/register">Register here</Link> */}
                             </div>
                             <div className="or">
                                 <hr className="bar"></hr>

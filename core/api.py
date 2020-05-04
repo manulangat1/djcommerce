@@ -16,9 +16,10 @@ from requests.auth import HTTPBasicAuth
 import json
 from . mpesa_credentials import MpesaAccessToken, LipanaMpesaPpassword
 from rest_framework.views import APIView
+from rest_framework import filters
 
 
-######MPESA INTERHA
+#####MPESA INTERHA
 def getAccessToken(request):
     consumer_key = "xRnXI6CzMc4fmJMYnsybUVYtgQ8ndtUo"
     consumer_secret  = "ffYXfx8Yz9EKnBVk"
@@ -166,6 +167,12 @@ class OrderView(generics.RetrieveAPIView):
             return order
         except ObjectDoesNotExist:
             return Respose({"message":"incad"},status=HTTP_400_BAD_REQUEST)
+class CategoryView(generics.ListAPIView):
+    serializer_class = ItemSerializer
+    def get_queryset(self,*args,**kwargs):
+        return Item.objects.all()
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['=category', 'title']
 class OrderDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = OrderItemsSerializer
     # permission_classes = [

@@ -1,4 +1,4 @@
-import { GET_ITEMS,ADD_TO_CART,GET_DETAILS } from './types'
+import { GET_ITEMS,ADD_TO_CART,GET_DETAILS,LOAD_CATEGORY } from './types'
 import axios from 'axios'
 import { tokenConfig } from "./auth";
 export const getItems = () => (dispatch,getState) => {
@@ -31,6 +31,17 @@ export const prodDetail = slug => (dispatch,getState) => {
                  type:GET_DETAILS,
                  payload:res.data
              })
+         })
+         .catch(err => console.log(err))
+}
+export const loadCategory = search => (dispatch,getState) => {
+    axios.get(`/api/category/?search=${search}`,tokenConfig(getState))
+         .then(res => {
+             dispatch({
+                 type:LOAD_CATEGORY,
+                 payload:res.data
+             })
+         
          })
          .catch(err => console.log(err))
 }

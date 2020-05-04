@@ -22,12 +22,118 @@
     margin: auto;
 }
 // header
+#heads{
+    background-color: #35424a;
+    color:#ffffff;
+    padding-top: 30px;
+    min-height: 70px;
+    // border-bottom: #e8491d 3px solid;
+    li{
+        float: left;
+        display: inline;
+        padding: 0 20px 0 20px;
+    }
+    nav{
+        float: right;
+        margin-top: -15px;
+        /* The dropdown container */
+.dropdown {
+    // float: left;
+    overflow: hidden;
+    margin-top: -16px;
+  }
+  
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+//   .dropbtn{
+//       background-color: #181818;
+//   }
+  /* Add a red background color to navbar links on hover */
+  a{
+      color:#f1f1f1;
+  }
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+  }
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    // display: none;
+    color:#181818;
+    padding: 12px 16px;
+
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+    }
+
+    #branding{
+        float:left;
+
+        h1{
+            margin:0;
+        .highlight{
+            color: #e8491d;
+            font-weight: bold;
+        }
+        }
+    }
+}
 header{
     background-color: #35424a;
     color:#ffffff;
     padding-top: 30px;
     min-height: 70px;
     border-bottom: #e8491d 3px solid;
+    .p-btn{
+        // margin-top: 0.5rem;
+        border: none;
+        // height: 2.7rem;
+        margin-left:0.5rem;
+        display: inline-;
+        padding: 0.2rem 0.5rem;
+        color: #fff;
+        background-color: #f96816;
+        border-radius: 4px;
+        font-weight: 500;
+        // margin-bottom: 0.7rem;
+        cursor: pointer;
+        transition: all 0.5s;
+        &:hover{
+            // color:#494;
+            background-color: #ff7b39;
+        }
+    }
+    .form-control{
+        // padding:1rem;
+        border-radius: 4px;
+        // padding: 0 1rem;
+        padding-left: 1rem;
+        padding-right:1rem;
+        // padding-top:1rem;
+        border:none;
+        &:focus,&:hover{
+            border: 1px solid #181818;
+        }
+    }
     li{
         float: left;
         display: inline;
@@ -300,9 +406,9 @@ ul{
         max-height:150px;
     }
     .container{
-        display:grid;
-        grid-template-columns: repeat(2,1fr);
-        grid-gap: 0.5rem;
+        // display:grid;
+        // grid-template-columns: repeat(2,1fr);
+        // grid-gap: 0.5rem;
     }
     .prod{
         width:100%; 
@@ -315,7 +421,7 @@ ul{
             // grid-gap:  0.9rem;
         }
         .img-example{
-            width:250px;
+            width:450px;
             height:250px;
         }
     }
@@ -368,6 +474,18 @@ ul{
             cursor: pointer;
             border-radius: 4px;
         }
+    }
+}
+#gen{
+    padding: 3rem;
+    .title{
+        text-align: center;
+        font-size: 1.7rem;
+        border-bottom: 2rem;
+    }
+    h1{
+        font-size: 1rem;
+        border-bottom: 0.7rem;
     }
 }
 // tyling for the footer component 

@@ -1,8 +1,9 @@
 from django.urls import path,include
 from .views import OrderSummaryView,item_list,HomeView,ProductDetailView,add_to_cart,remove_from_cart
 app_name = "core"
-from .api import MpesaPay,ItemDetailView,lipa_na_mpesa_online,getAccessToken,ProfileView,RegisterAPI,LoginAPI,UserAPI,ItemListView,AddToCartView,OrderView,OrderDetailView
+from .api import CategoryView,lipa_na_mpesa_online,getAccessToken,MpesaPay,ItemDetailView,ProfileView,RegisterAPI,LoginAPI,UserAPI,ItemListView,AddToCartView,OrderView,OrderDetailView
 from knox import views as knox_views
+
 urlpatterns = [
     path('',item_list,name='item-list'),
     ##mpesa api
@@ -10,6 +11,7 @@ urlpatterns = [
     path('online/lipa', lipa_na_mpesa_online, name='lipa_na_mpesa'),
     path('mpesa/', MpesaPay.as_view(), name='mpesa'),
     path('api/auth',include('knox.urls')),
+    path('category/',CategoryView.as_view(),name="category"),
     path('register/',RegisterAPI.as_view(),name='register'),
     path('profile/<pk>/',ProfileView.as_view(),name='profile'),
     path('login/',LoginAPI.as_view(),name='login'),

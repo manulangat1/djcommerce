@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>hey</h1>
+{{object.title}}
+
+{% if object.discount_price %}
+<p>{{object.discount_price }}</p>
+{% else %}
+<p>{{object.price }}</p>
+{% endif %}
+<p>{{object.get_category_display }}</p>
+<a href="{{object.get_add_to_cart_url}}">add to cart</a>
+<a href="{{object.get_remove_from_cart_url}}">remove cart</a>
+{% endblock %}

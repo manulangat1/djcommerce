@@ -4,6 +4,7 @@ app_name = "core"
 from .api import CategoryView,lipa_na_mpesa_online,getAccessToken,MpesaPay,ItemDetailView,ProfileView,RegisterAPI,LoginAPI,UserAPI,ItemListView,AddToCartView,OrderView,OrderDetailView
 from knox import views as knox_views
 
+
 urlpatterns = [
     path('',item_list,name='item-list'),
     ##mpesa api

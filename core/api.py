@@ -60,24 +60,6 @@ class MpesaPay(generics.GenericAPIView):
         response = requests.post(api_url,json=request,headers=headers)
         print(request)
         return HttpResponse('success')
-        # api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
-        # headers = {"Authorization":"Bearer %s" %access_token}
-        # request = {
-        #     "BusinessShortCode":LipanaMpesaPpassword.Business_short_code,
-        #     "Password": LipanaMpesaPpassword.decode_password,
-        #     "Timestamp": LipanaMpesaPpassword.lipa_time,
-        #     "TransactionType": "CustomerPayBillOnline",
-        #     "Amount": f'{total}',
-        #     "PartyA": f'{phone_no}',  # replace with your phone number to get stk push
-        #     "PartyB": LipanaMpesaPpassword.Business_short_code,
-        #     "PhoneNumber": f'{phone_no}',  # replace with your phone number to get stk push
-        #     "CallBackURL": "https://sandbox.safaricom.co.ke/mpesa/",
-        #     "AccountReference": f'{self.request.user.username}',
-        #     "TransactionDesc": "Payment of goods"
-        # }
-        # response = requests.post(api_url,json=request,headers=headers)
-        # print(request)
-        # return HttpResponse({"hey"})
 def lipa_na_mpesa_online(request):
     access_token = MpesaAccessToken.validated_mpesa_access_token
     api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"

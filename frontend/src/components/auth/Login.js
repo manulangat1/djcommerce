@@ -58,7 +58,7 @@ class Login extends React.Component{
                     <div id="showcase">
                         <div className="showcase-content">
                             <h1 className="showcase-text">
-                                Jenga at the convineirt of you phone!!
+                                Jenga Kiseti!!
                                 <a href="" className="secondary-btn" >Learn More</a>
                             </h1>
                         </div>

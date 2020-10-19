@@ -79,7 +79,7 @@ class Header extends React.Component{
             <section id="heads">
                 <div className="container">
                     <div id="branding">
-                        <h1> <i class="fas fa-couch fa-5.5x"><span className="highlight"> Letshego </span> Furniture</i></h1>
+                        <h1> <i class="fas fa-couch fa-5.5x"><span className="highlight"> Jenga </span> Hardware</i></h1>
                         
                     </div>
                     <nav>
@@ -87,13 +87,13 @@ class Header extends React.Component{
                     </nav>
                 </div>
             </section>
-            <header>
-            <div className="container">
-                <form onSubmit={this.onSubmit}>
+            {/* <header>
+            <div className="container"> */}
+                {/* <form onSubmit={this.onSubmit}>
             <input type="text" required className="form-control" value={search} name="search" onChange={this.onChange}  placeholder="search your favourite products" />
             <input type="submit" value="search" className="p-btn" />
-            </form>
-            <nav>
+            </form> */}
+            {/* <nav>
             <ul>
                     <li>
                     <Link to="/home">Home Furniture</Link>
@@ -102,9 +102,9 @@ class Header extends React.Component{
                     <Link to="/office">Office Furniture</Link>
                     </li>
                 </ul>
-            </nav>
-            </div>
-            </header>
+            </nav> */}
+            {/* </div>
+            </header> */}
             </section>
         )
     }

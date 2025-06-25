@@ -94,7 +94,8 @@ class Header extends React.Component {
             <div id="branding">
               <h1>
                 {" "}
-                <i class="fas fa-couch fa-5.5x">
+                {/* <i class="fa-solid fa-basket-shopping"></i> */}
+                <i class="fas  fa-basket-shopping fa-5.5x">
                   <span className="highlight"> Lishe </span> Food Connect
                 </i>
               </h1>

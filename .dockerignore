@@ -1,0 +1,14 @@
+static
+staticfiles
+mobile
+venv
+
+.git
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+tests/
+docs/
+*.db
+.env

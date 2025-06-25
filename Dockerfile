@@ -36,8 +36,10 @@ COPY --from=builder /root/.local /root/.local
 # Make sure PATH includes local bin (for installed scripts)
 ENV PATH=/root/.local/bin:$PATH
 
+
+
 # Collect static files at build time
-# RUN python manage.py collectstatic --noinput
+RUN python manage.py collectstatic --noinput
 
 # CMD ["sh", "entry.sh"]
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

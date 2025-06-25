@@ -39,7 +39,14 @@ ENV PATH=/root/.local/bin:$PATH
 
 
 # Collect static files at build time
-RUN python manage.py collectstatic --noinput
+# RUN python manage.py collectstatic --noinput
+
+
+COPY entry.sh /entry.sh
+# RUN chmod +x entry.sh
+
+RUN chmod +x /entry.sh
+ENTRYPOINT ["/entry.sh"]
 
 # CMD ["sh", "entry.sh"]
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
